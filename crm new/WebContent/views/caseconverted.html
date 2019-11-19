@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+<div style="margin-top: 0px;" ng-init="getEnquiryall()" >
+<div class="row" >
+
+<div class="col-lg-12 col-12" >
+<div style="text-align: center;" ng-show="getallenquiry.length==0;">No Data Found</div>
+<div class="row previous-search" ng-show="getallenquiry.length!=0;" >
+</div>
+
+<div   class="table-previous" style="overflow-x:auto;">
+<table  ng-show="getallenquiry.length!=0;" class="table table-hover " style="background-color: white; width:  ">
+  <thead class="" style="background-color: #564d48;">
+    <tr>
+    <th style="text-align:center;">Enquiry Id</th>
+    <th style="text-align:center;">Doctor Name</th>
+     
+      <th style="text-align: center;">Clinic Name</th>
+     <th style="text-align: center;">Type</th>
+     <th style="text-align: center;">Enquiry details</th>
+    
+      <th style="text-align: center;">Convert to case</th>
+     <th style="text-align: center;">Enquiry Date</th>
+    
+	     
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="x in getallenquiry" >
+   <td>{{x.enquiryid}}</td>
+     <td>{{x.doctorname}}</td>
+      <td>{{x.clinicname}}</td>
+      <td>{{x.type}}</td>
+       <td>{{x.enquirydetails}}</td>
+    
+     <td><button ng-click="converttocase(x.enquiryid)">Convert</button></td>
+    <td>{{x.enquirydate}}</td>
+   
+  
+    
+  
+     
+    
+       </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>

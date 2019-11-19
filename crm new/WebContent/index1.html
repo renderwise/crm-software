@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="MyController as ctrl">
+
+<head>
+  <link rel="stylesheet" href="style1.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="ui-bootstrap-tpls1.js"></script>
+  <script src="datetime-picker1.js"></script>
+  <script src="controller1.js"></script>
+</head>
+
+<body style="padding:10px;" class="container-fluid">
+  <h3>DateTime picker with Possible solution</h3>
+  <h5>The fix was made inside ui-bootstrap-tpls.js file, specifically invalidate function</h5>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Both</label>
+      <div class="col-sm-10">
+        <p class="input-group">
+          <input type="text" id="amit" class="form-control" datetime-picker="MM-dd-yyyy" ng-model="ctrl.picker3.date" is-open="ctrl.picker3.open" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="ctrl.openCalendar($event, 'picker3')"><i class="fa fa-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">model</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{ ctrl.picker3.date }}</p>
+      </div>
+    </div>
+	<button onclick="fun()"></button>
+  </form>
+
+<script>
+function fun(){
+
+
+alert(document.getElementById("amit").value);
+
+}
+
+</script>
+</body>
+
+</html>

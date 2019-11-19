@@ -1,0 +1,497 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+
+
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+ 
+  
+  
+<div class="col-lg-12" >
+ <input type="date"  id="from" placeholder=" Date From" class=" form-control form-control-sm" >
+	</div>
+	<div class="col-lg-12">&nbsp;
+	</div>	
+	
+		<div class="col-lg-12" >
+<input type="date"   id="to" placeholder=" Date To" class=" form-control form-control-sm" >
+	</div>
+	<div class="col-lg-12">&nbsp;
+	</div>	
+	
+		<div class="col-lg-12" >
+<input type="text" list="dd" id="doctornameforsearch1" placeholder="Doctor Name" class=" form-control form-control-sm" >
+		
+		<datalist id="dd">
+		
+		<option ng-repeat="x in alldoctors" value="{{x.name}}">{{x.name}},{{x.city}}</option>
+		</datalist>
+		</div>
+  
+ <div class="col-lg-12">&nbsp;
+	</div>	
+	
+		<div class="col-lg-12" >
+	<!-- 	<select name="crmnameforsearch" id="crmnameforsearch" class="form-control form-control form-control-sm"  >
+
+<option ng-repeat="x in allcrms" value="{{y.id}}">{{x.crmname}} ,  {{x.phone}}</option>
+
+</select> -->
+		<select name="cooperatename" id="crmnameforsearch"   class="form-control"   >
+       <option value=""  selected> Crm Name</option>
+        
+      
+       <option ng-repeat="y in allcrms" value="{{y.id}}">{{y.crmname}} , {{y.phone}}</option>
+
+        </select>
+		
+		
+<!--  <input type="text" list="nn" id="crmnameforsearch" placeholder="Crm Name" class=" form-control form-control-sm" >
+		
+		<datalist id="nn">
+		<option  ng-repeat="y in allcrms" value="{{y.id}}">{{y.crmname}} , {{y.phone}}</option>
+		</datalist> --> 
+		</div>
+		
+	<div class="col-lg-12">&nbsp;
+	</div>	
+	
+		<div class="col-lg-12">
+		
+		
+<!-- <input type="text" id="cityforsearch1" placeholder="City"  ng-modal="formdata.cityforsearch" class=" form-control form-control-sm" >
+ -->		
+		
+		
+		<select id="cityforsearch1" class="form-control" name="addcity"  required ng-model="formdata.cityforsearch" >
+        <option value=""  selected>Please Select City</option>
+        
+        <option value="Noida">Noida</option>
+        <option value="Gurgaon">Gurgaon</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Faridabad">Faridabad</option>
+        <option value="Patiala">Patiala</option>
+        <option value="Ghaziabad">Ghaziabad</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Vishakhapatnam">Vishakhapatnam</option>
+        <option value="Jaipur">Jaipur</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Pune">Pune</option>
+        <option value="Bengluru">Bengluru</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Lukhnow">Lukhnow</option>
+        <option value="Pan India">Pan India</option>
+        
+</select>
+		
+		
+		</div>
+  <div class="col-lg-12">&nbsp;
+	</div>	
+	
+  
+  <div class="col-lg-12">
+  
+  <select id="checklogsselect1" class=" form-control form-control-sm">
+			<option></option>
+			<option value="corporate">Search By Corporate</option>
+			<option value="private">Search By Private</option>
+			</select> 
+  
+  </div>
+  
+  
+   <div class="col-lg-12">&nbsp;
+	</div>	
+	
+  
+   <div class="col-sm-4">
+	<select id="filterby11" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	<option value="noofcases">No. of cases</option>
+	<option value="experience">Experience</option>
+	</select>
+	<!-- <input type="text" id="noofchairssearch" placeholder="No Of Chairs" class=" form-control form-control-sm" >
+	 -->
+	
+	</div>
+  
+  
+  <div class="col-sm-4">
+<!-- <select id="checklogsselect1" class=" form-control form-control-sm">
+			<option></option>
+			<option value="corporate">Search By Corporate</option>
+			<option value="private">Search By Private</option>
+			</select>  -->
+	<select id="sign11" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="==">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+			
+	</div>
+	
+	
+	
+	<div class="col-sm-4">
+	
+	<input type="text" id="value11" placeholder="Enter Value" class=" form-control form-control-sm" >
+	</div>
+	
+	
+	<div class="col-lg-12">&nbsp;
+	</div>	
+	
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
+			<select id="andor11" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="&&">And</option>
+	<option value="||">OR</option>
+	
+	</select>
+	</div>
+		<div class="col-lg-3"></div>
+  
+  
+ 
+  
+  
+			
+			<div class="col-lg-12">&nbsp;
+	</div>	
+	
+			
+			
+			
+			<div class="col-lg-4">
+		<select id="filterby21" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	<option value="noofcases">No. of cases</option>
+	<option value="age">Experience</option>
+	
+	</select>
+	
+			
+			
+	</div>
+	<div class="col-lg-4">
+			<select id="sign21" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="==">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+	</div>
+	<div class="col-lg-4">
+			<input type="text" id="value21" placeholder="Enter Value" class=" form-control form-control-sm" >
+	
+			
+	</div>
+			
+		
+			<div class="col-lg-12">&nbsp;
+	</div>	
+	
+	<div class="col-lg-3"></div>
+		
+			<div class="col-lg-6">
+			<select id="andor21" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="&&">And</option>
+	<option value="||">OR</option>
+	
+	</select>
+	</div>
+		
+			<div class="col-lg-12">&nbsp;
+	</div>	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="col-sm-4">
+		<select id="filterby31" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	<option value="noofcases">No. of cases</option>
+	<option value="age">Experience</option>
+	
+	</select>
+	
+			
+			
+	</div>
+	<div class="col-sm-4">
+			<select id="sign31" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="==">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+	</div>
+	<div class="col-sm-4">
+			<input type="text" id="value31" placeholder="Enter Value" class=" form-control form-control-sm" >
+	
+			
+	</div>
+	
+		
+  <div class="col-lg-12">&nbsp;
+	</div>	
+	
+  
+  <div class="col-lg-12" >
+		
+<button type="button" ng-click="findrowscheck2()" onclick="closeNav()" id="loadclick"  class=" form-control form-control-sm">Search</button>
+	
+			</div>
+			
+			
+			
+			
+			<div class="col-lg-12" >
+		
+<input type="button" ng-click="clearfilter()" value="Clear Filter" class=" form-control form-control-sm">
+ 	
+			</div>
+			
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; FILTER</span>
+</div>
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+
+
+
+
+
+
+
+
+
+<div style="margin-top: 0px;" ng-init="getdoctors();getcrm();" >
+<div class="row" >
+
+<div class="col-lg-12 col-12" >
+<div style="text-align: center;" ng-show="previousdates1.length==0;">No Data Found</div>
+<div class="row previous-search" ng-show="previousdates1.length!=0;" >
+
+
+
+
+<!-- 	 <div class="col-lg-2">
+	<select id="filterby11" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	<option value="noofcases">No. of cases</option>
+	<option value="experience">Experience</option>
+	</select>
+	<input type="text" id="noofchairssearch" placeholder="No Of Chairs" class=" form-control form-control-sm" >
+	
+	
+	</div> -->
+	<!-- <div class="col-lg-2">
+<select id="checklogsselect1" class=" form-control form-control-sm">
+			<option></option>
+			<option value="corporate">Search By Corporate</option>
+			<option value="private">Search By Private</option>
+			</select> 
+	<select id="sign11" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="==">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+			
+	</div> -->
+	
+	<!-- <div class="col-lg-2">
+	
+	<input type="text" id="value11" placeholder="Enter Value" class=" form-control form-control-sm" >
+	</div> -->
+	<!-- <div class="col-lg-1"></div>
+		<div class="col-lg-2" >
+		
+<button type="button" ng-click="findrowscheck2()" id="loadclick"  class=" form-control form-control-sm">Search</button>
+	
+			</div> -->
+			<br>
+			<!-- <div class="col-lg-12">
+			<select id="andor11" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="&&">And</option>
+	<option value="||">OR</option>
+	
+	</select>
+	</div> -->
+			
+			<!-- <div class="col-lg-2">
+		<select id="filterby21" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	<option value="noofcases">No. of cases</option>
+	<option value="age">Experience</option>
+	
+	</select>
+	
+			
+			
+	</div>
+	<div class="col-lg-2">
+			<select id="sign21" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="==">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+	</div>
+	<div class="col-lg-2">
+			<input type="text" id="value21" placeholder="Enter Value" class=" form-control form-control-sm" >
+	
+			
+	</div>
+	<div class="col-lg-4">
+			&nbsp;
+			
+			
+	</div> -->
+		<!-- <div class="col-lg-2" >
+		
+<input type="button" ng-click="clearfilter()" value="Clear Filter" class=" form-control form-control-sm">
+ 	
+			</div> -->
+			<div class="col-lg-10">
+			<label>Total Rows : </label>
+			
+			<span>{{previousdates1.length}}</span>
+			
+			
+	</div>
+		<div class="col-lg-2" >
+		
+		
+	<input type="button" onclick="tableToExcel('testTable', 'W3C Example Table')" value="Create csv for data" class=" form-control form-control-sm">
+ 	
+ 	
+ 	
+ 	
+			</div>
+			
+			
+		<!-- 	<div class="col-lg-12">
+			<select id="andor21" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="&&">And</option>
+	<option value="||">OR</option>
+	
+	</select>
+	</div> -->
+			
+						
+
+</div>
+<br>
+
+3\
+
+<div class="row"  style="text-align: center;">
+<label class="" >DoctorName :&nbsp{{formdata.doctornameforsearch1}} &nbsp&nbsp </label>
+<label class="" >From date : &nbsp{{formdata.fromdate}} &nbsp&nbsp </label>
+<label class="" >To Date : &nbsp{{formdata.todate}} &nbsp&nbsp </label>
+<label class="" >Crm Name : &nbsp{{formdata.crmname}} &nbsp&nbsp </label>
+<label class="" >City : &nbsp{{formdata.cityforsearch}}  </label>
+<!-- <button onclick="amit()">click</button> -->
+</div>
+
+<div  class="table-previous" style="overflow-x:auto;">
+<table id="testTable" ng-show="previousdates1.length!=0;" class="table table-hover " style="background-color: white; width:  ">
+  <thead class="" style="background-color: #564d48;">
+    <tr><th style="text-align:center;">Doctor Name</th>
+      <th  style="text-align: center;">Age</th>
+     <!--   <th  style="text-align: center;">Crm Name</th> -->
+      <th style="text-align: center;">Clinic Name</th>
+      <th style="text-align: center;">Experience</th>
+      <th style="text-align: center;">No of Chairs</th>
+      
+      <th style="text-align: center;">Type</th>
+      <th style="text-align: center;">No of Enquiries</th>
+      <th style="text-align: center;">No of Cases</th>
+     
+     
+	     
+    </tr>
+  </thead>
+  <tbody >
+    <tr  ng-repeat="x in previousdates1   |  filter:{'clinicname':  searchKeywordPatientName} | filter: {'type' : searchKeywordSerialNumber}" >
+   
+     <td style="text-align: center;">{{x.doctorname}}</td>
+       <td style="text-align: center;">{{x.age}}</td>
+       <!--   <td style="text-align: center;">{{x.crmname}}</td> -->
+      <td style="text-align: center;">{{x.clinicname}}</td>
+       <td style="text-align: center;">{{x.experience}}</td>
+      <td style="text-align: center;">{{x.noofchairs}}</td>
+     <td style="text-align: center;">{{x.type}}</td>
+     <td style="text-align: center;">{{x.noofenquiries}}</td>
+   <td style="text-align: center;"> {{x.noofcases}}</td>
+  
+      </tr>
+  </tbody>
+</table>
+</div>
+
+ </div>
+
+
+
+<div class="col-lg-1"></div>
+
+ 
+  
+</div>
+</div>

@@ -1,0 +1,48 @@
+<div class="login-bg" ng-init="getdoctors()">
+<div class="container">
+<h1>ADD ENQUIRY</h1>
+<div class="login-form">
+<form method="post" ng-submit="addenquirydata()">
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;">Username</label>-->
+<label>Doctor Name</label>
+
+<input type="hidden" value="{{formdata.loginid}}" ng-modal="{{formdata.loginid}}">
+
+<select name="edoctorname" required class="form-control" ng-modal="formdata.edoctorid" id="edoctorid">
+<option value="" disabled selected>View current values</option>
+<option ng-repeat="x in alldoctors" value="{{x.d_id}}">{{x.name}}   ,  {{x.city}}</option>
+
+</select>
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>What is the Enquiry ?</label>
+<textarea type="text"  ng-model="formdata.enquirydetails"  ng-required="true" value="formdata.enquirydetails" class="form-control" placeholder="Enter Enquiry Details"></textarea>
+</div>
+
+
+
+
+
+
+<div style="text-align: center;" >
+<button type="submit" class="btn login-btn" >Submit</button>
+
+</div>
+
+</form>
+</div>
+</div>
+</div>

@@ -1,0 +1,270 @@
+<link rel="stylesheet" type="text/css" href="CSS/tableanimation.css">
+<link href="CSS/font-awesome.css" rel="stylesheet" />
+<div style="margin-top: 0px;" ng-init="getdoctors();getcrm();" >
+<div class="row" >
+
+<div class="col-lg-12 col-12" >
+<!-- <div style="text-align: center;" ng-show="previousdates.length==0;">No Data Found</div> -->
+<div class="row previous-search" ng-show="previousdates.length!=0;" >
+
+
+
+
+<div class="col-lg-3" >
+ <input type="text" onfocus="(this.type='date')" id="cfrom" placeholder=" Date From" class=" form-control form-control-sm" >
+	</div>
+	
+	<div class="col-lg-3" >
+<input type="text" onfocus="(this.type='date')"  id="cto" placeholder=" Date To" class=" form-control form-control-sm" >
+	</div>
+		<div class="col-lg-3" >
+<input type="text" list="dd" id="cdoctornameforsearch1" placeholder="Doctor Name" class=" form-control form-control-sm" >
+	
+		<datalist id="dd">
+		
+		<option ng-repeat="x in alldoctors" value="{{x.name}}">{{x.city}}</option>
+		</datalist>
+		</div>
+		<div class="col-lg-3" >
+<input type="text" list="nn" id="ccrmnameforsearch" disabled placeholder="Crm Name" value="{{formdata.user}}"class=" form-control form-control-sm" >
+		
+		<datalist id="nn">
+		<option  ng-repeat="y in allcrms" value="{{y.crmname}}">{{y.phone}}</option>
+		</datalist>
+		</div>
+		
+	<div class="col-lg-12">&nbsp;
+	</div>	
+	
+		<div class="col-lg-3">
+		
+		
+<!-- <input type="text" id="ccityforsearch1" placeholder="City" class=" form-control form-control-sm" >
+ -->		<select  id="ccityforsearch1" class="form-control" name="addcity"   >
+        <option value=""  selected> Select City</option>
+        
+        <option value="Noida">Noida</option>
+        <option value="Gurgaon">Gurgaon</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Faridabad">Faridabad</option>
+        <option value="Patiala">Patiala</option>
+        <option value="Ghaziabad">Ghaziabad</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Vishakhapatnam">Vishakhapatnam</option>
+        <option value="Jaipur">Jaipur</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Pune">Pune</option>
+        <option value="Bengluru">Bengluru</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Lukhnow">Lukhnow</option>
+        
+</select>
+		
+		
+		</div>
+	<!--  <div class="col-lg-2">
+	<select id="filterby1" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	</select>
+	<input type="text" id="noofchairssearch" placeholder="No Of Chairs" class=" form-control form-control-sm" >
+	
+	
+	</div> -->
+	<!-- <div class="col-lg-2">
+<select id="checklogsselect" class=" form-control form-control-sm">
+			<option></option>
+			<option value="corporate">Search By Corporate</option>
+			<option value="private">Search By Private</option>
+			</select> 
+	<select id="sign1" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="=">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+			
+	</div>
+	
+	<div class="col-lg-2">
+	
+	<input type="text" id="value1" placeholder="Enter Value" class=" form-control form-control-sm" >
+	</div>
+	<div class="col-lg-1"></div> -->
+		<div class="col-lg-2" >
+		
+<input type="button" ng-click="fetchpreviousdatesforuser()" value="search" class=" form-control form-control-sm">
+	
+			</div>
+			<br>
+		<!-- 	<div class="col-lg-12">
+			<select id="andor1" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="and">And</option>
+	<option value="or">OR</option>
+	
+	</select>
+	</div> -->
+			
+		<!-- 	<div class="col-lg-2">
+		<select id="filterby2" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	</select>
+	
+			
+			
+	</div>
+	<div class="col-lg-2">
+			<select id="sign2" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<"><=</option>
+	<option value="=">=</option>
+	<option value=">">>=</option>
+	</select>
+			
+	</div>
+	<div class="col-lg-2">
+			<input type="text" id="value2" placeholder="Enter Value" class=" form-control form-control-sm" >
+	
+			
+	</div>
+	<div class="col-lg-4">
+			&nbsp;
+			
+			
+	</div> -->
+		<div class="col-lg-2" >
+		
+<input type="button" ng-click="clearfilter()" value="Clear Filter" class=" form-control form-control-sm">
+ 	
+			</div>
+			<div class="col-lg-10">
+			<label>Total Rows : </label>
+			
+			<span>{{previousdates.length}}</span>
+			
+			
+	</div>
+		<div class="col-lg-2" >
+		
+		
+	<input type="button" onclick="tableToExcel('previoustable', 'W3C Example Table')" value="Create csv for data" class=" form-control form-control-sm">
+ 	
+			</div>
+			
+			
+			<!-- <div class="col-lg-12">
+			<select id="andor2" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="and">And</option>
+	<option value="or">OR</option>
+	
+	</select>
+	</div>
+			
+						<div class="col-lg-2">
+		<select id="filterby3" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="noofchairs">No. Of Chairs</option>
+	<option value="noofenquiries">No. Of Enquiries</option>
+	<option value="age">Age</option>
+	</select>
+	
+			
+			
+	</div>
+	<div class="col-lg-2">
+			<select id="sign3" class="form-control form-control-sm">
+	<option value=""></option>
+	<option value="<="><=</option>
+	<option value="=">=</option>
+	<option value=">=">>=</option>
+	</select>
+			
+	</div>
+	<div class="col-lg-2">
+			<input type="text" id="value3" placeholder="Enter Value" class=" form-control form-control-sm" >
+	
+			
+	</div> -->
+</div>
+<br>
+
+
+<div   class="table-previous" style="overflow-x:auto;">
+<table id="previoustable"  ng-show="previousdates.length!=0;" class="table table-hover " style="background-color: white; width:  ">
+  <thead class="" style="background-color: #564d48;">
+    <tr><th style="text-align:center;">Crm Name</th>
+      <th  style="text-align: center;">date1</th>
+      <th style="text-align: center;">Doctor Name</th>
+      
+      <th style="text-align: center;">Address </th>
+      <th style="text-align: center;">Contact</th>
+      
+      
+      <th style="text-align: center;">Status</th>
+          <th style="text-align: center;">City</th>
+	     <th style="text-align: center;">Discussion</th>
+	     <th style="text-align:center;">Time From</th>
+	     <th style="text-align:center;">Time To</th>
+	     <th style="text-align: center;">Expected date</th>
+	     <th style="text-align: center;">Actual Date</th>
+	     <th style="text-align: center;">Remarks</th>
+	     <th style="text-align: center;">Visit Date</th>
+	     
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="x in previousdates   |  filter:{'crmname':  searchKeywordPatientName} | filter: {'doctorname' : searchKeywordSerialNumber}" >
+   
+     <td>{{x.crm}}</td>
+       <td>{{x.date1}}</td>
+      <td>{{x.DoctorName}}</td>
+      
+      <td>{{x.address}}</td>
+      <td>{{x.contact}}</td>
+      
+      
+      <td>{{x.Status}}</td>
+      
+      
+      <td>{{x.city}}</td>
+      
+      
+       <td>{{x.discussion}}</td>
+      
+      <td>{{x.timefrom}}</td>
+      <td>{{x.timeto}}</td>
+        <td>{{x.expecteddate}}</td>
+      <td>{{x.actualdate}}</td>
+      
+      <td>{{x.remarks}}</td>
+      
+     
+      <td>{{x.actualvisitdate}}</td>
+  
+     
+    
+       </tr>
+  </tbody>
+</table>
+</div>
+
+ </div>
+
+
+
+<div class="col-lg-1"></div>
+
+ 
+  
+</div>
+</div>

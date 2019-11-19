@@ -1,0 +1,164 @@
+<div class="login-bg">
+<div class="container" ng-init="getdoctors()">
+<h1>ADD MRLOG INFO</h1>
+<div class="login-form">
+<form method="post" ng-submit="addcrmdata()">
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;">Username</label>-->
+<label>Crm Name</label>
+<input type="text" name="crmname" class="" ng-model="formdata.crmname" disabled value="{{formdata.crmname}}">
+</div>
+
+<div >
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>DATE</label>
+<input type="date" id="maindate" ng-required="true"  placeholder="Enter date">
+</div>
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>TIME (FROM)</label>
+<input type="time"  id=timefrom  ng-required="true" class="form-control" placeholder="Enter time (From)">
+</div>
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>TIME (TO)</label>
+<input type="time" id="timeto" ng-required="true" class="form-control" placeholder="Enter time (to)">
+</div>
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Type</label>
+
+<select id="typeofdoctor1" class="form-control" ng-modal="formdata.typeofdoctor" onchange="getdoctorbytyp()">
+<option >select</option>
+<option value="private">Private</option>
+<option value="corporate">Corporate</option>
+
+</select>
+
+</div>
+
+
+<!-- <div class="form-group" ng-show="">
+
+	<label>Corporate Name</label>
+<input type="text" id="corporatenameinfo" ng-show="formdata.typeofdoctor=='corporate'" ng-required="" class="form-control" placeholder="Corporate Name">
+	
+
+</div> -->
+
+
+<div class="form-group" >
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Doctor Name</label>
+
+<!-- <select name="edoctorname" class="form-control" ng-modal="formdata.doctorname" id="edoctorid">
+
+<option ng-repeat="x in doctorbytype" value="{{x.doctorid}}">{{x.dname}} ,  {{x.typename}}</option>
+
+</select> -->
+
+ <!-- <input type="text" list="hehe" ng-disabled="formdata.typeofdoctor==''" ng-model="formdata.doctorname"  ng-required="true" value="{{formdata.doctorname}}" class="form-control" placeholder="Select doctor Name">
+
+<datalist id="hehe">
+
+<option ng-repeat="x in doctorbytype" value="{{x.doctorid}}">{{x.dname}} ,  {{x.typename}}</option>
+
+</datalist> --> 
+<input type="text" ng-model="search">
+<select id="selectdoctorname" required ng-model="formdata.doctorname" class="form-control"  onchange="getcitiesfromdoctor()" >
+       <option value="" disabled selected>Please Select Doctor Name</option>
+        
+       
+       <option ng-repeat="x in doctorbytype | filter:search" value="{{x.doctorid}}">{{x.dname}} ,  {{x.typename}}</option>
+
+        </select>
+
+
+</div>
+
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>City</label>
+<!-- <input type="text"  ng-model="formdata.city"  ng-required="true" value="{{formdata.city}}" class="form-control" placeholder="Enter City">
+ --> <select class="form-control" name="addcity"  required ng-model="formdata.city" >
+        <option value="" disabled selected>Please Select City</option>
+        <option ng-repeat="x in citysss" value="{{x.city}}">{{x.city}}</option>
+        
+      
+        
+</select> 
+
+
+</div>
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>STATUS</label>
+<input type="text"  ng-model="formdata.status"  ng-required="true" value="{{formdata.status}}" class="form-control" placeholder="Enter status">
+</div>
+
+
+
+<div class="form-group">
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Discussion point</label>
+<textarea type="text"  ng-model="formdata.discussion"  ng-required="true" value="{{formdata.discussion}}" class="form-control" placeholder="Enter discussion point"></textarea>
+</div>
+
+<div class="form-group">
+
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Enquiry</label>
+<input type="text"  ng-model="formdata.ordervalue"  ng-required="true" value="{{formdata.ordervalue}}" class="form-control" placeholder="Enter Order Value">
+</div>
+
+<div class="form-group">
+
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Order quantity</label>
+<input type="text"  ng-model="formdata.orderquantity"  ng-init="formdata.orderquantity ='NA'" ng-required="false" value="formdata.orderquantity" class="form-control" placeholder="Enter Order Quantity">
+</div>
+
+<div class="form-group">
+
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Order booked</label>
+<input type="text"  ng-model="formdata.orderbooked"  ng-init="formdata.orderbooked ='NA'" ng-required="false" value="{{formdata.orderbooked}}" class="form-control" placeholder="Enter Order Booked">
+</div>
+
+<div class="form-group">
+
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Expected Delievery Date</label>
+<input type="date"  id="expecteddate" class="form-control"  ng-required="false" placeholder="Expected delievery date">
+</div>
+
+<div class="form-group">
+
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Actual delievery date</label>
+<input type="date" id="actualdate" class="form-control"  ng-required="false" placeholder="Actual Delievery date">
+</div>
+
+
+<div class="form-group">
+
+<!--<label style="font-weight: bolder;" >Password</label>-->
+<label>Remarks</label>
+<input type="text"  ng-model="formdata.rem"  ng-init="formdata.rem ='NA'" ng-required="false" value="formdata.rem" class="form-control" placeholder="Enter Remarks">
+</div>
+<div style="text-align: center;" >
+<button type="submit" class="btn login-btn" >Submit</button>
+
+</div>
+
+
+
+
+</form>
+</div>
+</div>
+</div>
